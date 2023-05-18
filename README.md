@@ -4,8 +4,9 @@ This is a Course Project of Operating System (2023-Spring), Konkuk Univ.
 
 |Date|Topic(Link)|Description|
 |------|---|---|
-|2023. 03. |Adding a system call with a test application|Xv6 Starter!|
-|2023. 04. |Implement Lottery Scheduling on Xv6|Project 1|
+|2023. 04. |Adding a system call with a test application|Project 0: Xv6 Starter|
+|2023. 05. |Implementation Lottery Scheduler on Xv6|Project 1|
+|2023. 06. |...|Project 2|
 
 (🔨 will be updated soon)
 
@@ -69,6 +70,11 @@ int newSystemcall(innt);
 ## Lottery Scheduler
 - process 에 random 하게 cpu 자원을 분배하는 확률적인 스케줄러이다.
 - 각각의 process 는 ticek 을 할당받고, 무작위로 ticket 을 선정하여 스케쥴할 process 를 선정한다.
+- Process with Higher Ticket Gets Higher Chance to Win (If Sum of Tickets >= Random Number, Process Executes)
+
+![image](https://github.com/versatile0010/Operating_System/assets/96612168/e86069e8-6823-4b9d-a28f-970af47d49e2)
+
+
 
 ## How to implement Lottery Scheduler on XV6 ?
 1. 먼저 티켓 필드를 추가해야 한다. proc.h 의 proc 구조체에 tickets 필드를 추가한다.
@@ -80,6 +86,14 @@ int newSystemcall(innt);
 7. Lottery scheduler 을 잘 설계했는 지 확인할 수 있는 Test code 을 실행시켜서 점검한다.
 
 ---
+
+과제 요구사항
+```
+1. process의 티켓 값을 설정하는 시스템 콜 추가
+2. process의 티켓 값을 구할 수 있는 시스템 콜 추가
+3. 외부 파일을 추가하지 말고, rand.c, rand.h 를 직접 구현할 것. (완벽하게 Random 하지는 않아도 됨)
+4. 티켓의 초기값은 10 으로 설정할 것
+```
 
 
 
