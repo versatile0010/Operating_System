@@ -67,7 +67,7 @@ int newSystemcall(innt);
 
 ---
 
-## 📝Proj2: Lottery Scheduler
+## 📝Proj1: Lottery Scheduler
 - process 에 random 하게 cpu 자원을 분배하는 확률적인 스케줄러이다.
 - 각각의 process 는 ticek 을 할당받고, 무작위로 ticket 을 선정하여 스케쥴할 process 를 선정한다.
 - Process with Higher Ticket Gets Higher Chance to Win (If Sum of Tickets >= Random Number, Process Executes)
