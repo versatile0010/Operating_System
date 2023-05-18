@@ -63,3 +63,37 @@ int newSystemcall(innt);
 
 ### Device Drivers
 - ide.c, kbd.c, console.c 등에서 여러 하드웨어 장치 드라이버를 구현한다.
+
+---
+
+## Lottery Scheduler
+- process 에 random 하게 cpu 자원을 분배하는 확률적인 스케줄러이다.
+- 각각의 process 는 ticek 을 할당받고, 무작위로 ticket 을 선정하여 스케쥴할 process 를 선정한다.
+
+## How to implement Lottery Scheduler on XV6 ?
+1. 먼저 티켓 필드를 추가해야 한다. proc.h 의 proc 구조체에 tickets 필드를 추가한다.
+2. 새로운 프로세스가 할당될 때, ticket 이 적절히 초기화 되도록 proc.c 파일 내의 fork() 함수를 수정해야한다.
+3. Lottery Scheduler 을 구현하기 위해 proc.c 내의 scheduler() 함수를 수정해야한다. 먼저, 각각의 프로세스의 ticket 들의 합계를 구하는 부분이 추가되어야 할 것이다. (upper bound)
+4. 랜덤으로 티켓을 선택할 수 있도록, rand.c, rand.h 를 구현한 다음 scheduler() 함수 내에서 이를 사용하도록 수정한다.
+5. 이제 랜덤으로 티켓이 선택되면, 스케줄할 프로세스가 정해진 해당 프로세스를 실행한다. (schduler() 내의 기존 코드를 사용하면 된다.)
+6. Ticket 의 숫자를 조절할 수 있는 system call 을 구현한다.
+7. Lottery scheduler 을 잘 설계했는 지 확인할 수 있는 Test code 을 실행시켜서 점검한다.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
