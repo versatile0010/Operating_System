@@ -11,7 +11,7 @@ This is a Course Project of Operating System (2023-Spring), Konkuk Univ.
 (🔨 will be updated soon)
 
 ---
-## Add a new System call in xv6
+## 📝Proj0: Add a new System call in xv6
 1. syscall.h 에서 새로운 system call 호출 번호를 할당한다.
 2. sysproc.c 에 새로 추가할 system call 의 실제 함수를 구현한다.
 3. system call dispatcher 에 system call 을 추가하기 위해, syscall.c 에 새로운 system call 을 위한 주소를 추가한다
@@ -67,7 +67,7 @@ int newSystemcall(innt);
 
 ---
 
-## Lottery Scheduler
+## 📝Proj2: Lottery Scheduler
 - process 에 random 하게 cpu 자원을 분배하는 확률적인 스케줄러이다.
 - 각각의 process 는 ticek 을 할당받고, 무작위로 ticket 을 선정하여 스케쥴할 process 를 선정한다.
 - Process with Higher Ticket Gets Higher Chance to Win (If Sum of Tickets >= Random Number, Process Executes)
