@@ -5,10 +5,8 @@ This is a Course Project of Operating System (2023-Spring), Konkuk Univ.
 |Date|Topic(Link)|Description|
 |------|---|---|
 |2023. 04. |Adding a system call with a test application|Project 0: Xv6 Starter|
-|2023. 05. |Implementation Lottery Scheduler on Xv6|Project 1|
-|2023. 06. |...|Project 2|
-
-(🔨 will be updated soon)
+|2023. 05. |Implement Lottery Scheduler on Xv6|Project 1|
+|2023. 06. 15|Implement Kernel Thread|Project 2|
 
 ---
 ## 📝Proj0: Add a new System call in xv6
@@ -78,9 +76,9 @@ int newSystemcall(innt);
 ## How to implement Lottery Scheduler on XV6 ?
 1. 먼저 티켓 필드를 추가해야 한다. proc.h 의 proc 구조체에 tickets 필드를 추가한다. 🟢
 2. 새로운 프로세스가 할당될 때, ticket 이 적절히 초기화 되도록 proc.c 파일 내의 fork() 함수를 수정해야한다. 🟢
-3. Lottery Scheduler 을 구현하기 위해 proc.c 내의 scheduler() 함수를 수정해야한다. 🔴
-4. 랜덤으로 티켓을 선택할 수 있도록, rand.c, rand.h 를 구현한 다음 scheduler() 함수 내에서 이를 사용하도록 수정한다. 🔴
-5. 이제 랜덤으로 티켓이 선택되면, 스케줄할 프로세스가 정해진 해당 프로세스를 실행한다. (schduler() 내의 기존 코드를 사용하면 된다.) 🔴
+3. Lottery Scheduler 을 구현하기 위해 proc.c 내의 scheduler() 함수를 수정해야한다. 🟢
+4. 랜덤으로 티켓을 선택할 수 있도록, rand.c, rand.h 를 구현한 다음 scheduler() 함수 내에서 이를 사용하도록 수정한다. 🟢
+5. 이제 랜덤으로 티켓이 선택되면, 스케줄할 프로세스가 정해진 해당 프로세스를 실행한다. (schduler() 내의 기존 코드를 사용하면 된다.) 🟢
 6. Ticket 의 숫자를 조절할 수 있는 system call 을 구현한다. 🟢
 7. Lottery scheduler 을 잘 설계했는 지 확인할 수 있는 Test code 을 실행시켜서 점검한다. 🟢
 
@@ -93,11 +91,24 @@ int newSystemcall(innt);
 3. 외부 파일을 추가하지 말고, rand.c, rand.h 를 직접 구현할 것. (완벽하게 Random 하지는 않아도 됨) 🟢
 4. 티켓의 초기값은 10 으로 설정할 것 🟢
 ```
+---
+
+##  📝Proj2. Implement Kernel Threads
+- Add two new System calls
+```
+1. int clone(void(*fcn)(void *, void *), void *arg1, void *arg2, void *stack)
+2. int join(void **stack)
+```
+
+- Implement two wrapper function
+```
+1. int thread_create(void(*fcn)(void *, void *), void *arg1, void *arg2);
+2. int thread_join()
+
+```
 
 
-
-
-
+(🔨 will be updated soon- 05.26.)
 
 
 
