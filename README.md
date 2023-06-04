@@ -97,7 +97,10 @@ int newSystemcall(innt);
 - Add two new System calls
 ```
 1. int clone(void(*fcn)(void *, void *), void *arg1, void *arg2, void *stack)
+: arg1, arg2 는 thread 의 인자이고, stack 은 user space memory 이다. 초기 크기는 4KB 로 정의하고,
+반환 값은 thread_id 혹은 -1(실패 시)
 2. int join(void **stack)
+: thread stack 의 주소를 인자로 넘겨주어 stack 을 해제한다. 반환 값은 thread_id 혹은 -1(실패 시)
 ```
 
 - Implement two wrapper function
@@ -105,6 +108,11 @@ int newSystemcall(innt);
 1. int thread_create(void(*fcn)(void *, void *), void *arg1, void *arg2);
 2. int thread_join()
 
+```
+- OS and Kernel Thread
+```
+OS 는 system resource 를 관리하고 user 와 system 간 interface 를 제공하는 software 이다.
+kernel thread 를 통해 os 의 병렬처리를 빠르게 수행할 수 있다.
 ```
 
 
